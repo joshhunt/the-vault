@@ -1,0 +1,18 @@
+.symbols {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 16px;
+  margin: auto;
+  max-width: 560px;
+}
+
+.symbol {
+  padding: 15px;
+}
+
+.symbol-icon {
+  display: block;
+  width: 80px;
+  height: 80px;
+  margin-bottom: 8px;
+}
