@@ -14,7 +14,8 @@ export default class Callout extends Component {
   };
 
   setCallout(callout) {
-    this.setState({ callout, buttonsEnabled: false });
+    this.props.setCallout(callout);
+    this.setState({ buttonsEnabled: false });
   }
 
   reenableCallout() {
@@ -26,7 +27,8 @@ export default class Callout extends Component {
   }
 
   render() {
-    const { buttonsEnabled, callout, isSolved } = this.state;
+    const { setCallout, callout } = this.props;
+    const { buttonsEnabled, isSolved } = this.state;
 
     const buttons = (
       <div className="callout-buttons">

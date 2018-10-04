@@ -4,45 +4,59 @@ import './App.css';
 
 import Callout from './Callout';
 
-class App extends Component {
-  state = { key: 0 };
+const PLATES = ['trees', 'steps', 'rocks'];
 
-  setKey = () => {
-    this.setState({ key: this.state.key + 1 });
+class App extends Component {
+  state = {
+    key: 0,
+    callouts: {
+      trees: null,
+      rocks: null,
+      steps: null
+    }
   };
 
+  setKey = () => {
+    this.setState({
+      key: this.state.key + 1,
+      callouts: {
+        trees: null,
+        rocks: null,
+        steps: null
+      }
+    });
+  };
+
+  setCallout(plate, callout) {
+    this.setState({
+      callouts: {
+        ...this.state.callouts,
+        [plate]: callout
+      }
+    });
+  }
+
   render() {
+    const { callouts } = this.state;
+
     return (
       <div className="App" key={this.state.key}>
-        <header className="App-header">
-          <table>
-            <thead>
-              <tr>
-                <td>Trees</td>
-                <td>Steps</td>
-                <td>Rocks</td>
-              </tr>
-            </thead>
+        <div className="plates">
+          {PLATES.map(plate => (
+            <div className="plate" key={plate}>
+              <div className="plate-title">{plate}</div>
 
-            <tbody>
-              <tr>
-                <td>
-                  <Callout />
-                </td>
-                <td>
-                  <Callout />
-                </td>
-                <td>
-                  <Callout />
-                </td>
-              </tr>
-            </tbody>
-          </table>
+              <Callout
+                setCallout={callout => this.setCallout(plate, callout)}
+                callout={callouts[plate]}
+              />
+            </div>
+          ))}
+        </div>
 
-          <button className="resetButton" onClick={this.setKey}>
-            Reset
-          </button>
-        </header>
+        <button className="resetButton" onClick={this.setKey}>
+          Reset
+        </button>
       </div>
     );
   }
