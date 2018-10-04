@@ -1,0 +1,49 @@
+.callout {
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 180px;
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.callout-buttons {
+  display: grid;
+  /* grid-template-columns: 80px 80px; */
+  grid-template-columns: 1fr 1fr;
+  text-align: center;
+}
+
+.callout-buttons > * + * {
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.callout-split:hover {
+  background: rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+}
+
+.subtle {
+  opacity: 0.5;
+  font-size: 0.8em;
+}
+
+.callout-callout-side {
+  font-size: 0.8em;
+}
+
+.callout-callout-buff {
+  font-size: 1.2em;
+}
+
+.callout-callout + .callout-buttons {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
+.solved {
+  background: rgba(0, 0, 0, 0.2);
+  opacity: 0.25;
+}

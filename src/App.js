@@ -2,23 +2,46 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import Callout from './Callout';
+
 class App extends Component {
+  state = { key: 0 };
+
+  setKey = () => {
+    this.setState({ key: this.state.key + 1 });
+  };
+
   render() {
     return (
-      <div className="App">
+      <div className="App" key={this.state.key}>
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+          <table>
+            <thead>
+              <tr>
+                <td>Trees</td>
+                <td>Steps</td>
+                <td>Rocks</td>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>
+                  <Callout />
+                </td>
+                <td>
+                  <Callout />
+                </td>
+                <td>
+                  <Callout />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <button className="resetButton" onClick={this.setKey}>
+            Reset
+          </button>
         </header>
       </div>
     );

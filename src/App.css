@@ -30,3 +30,19 @@
     transform: rotate(360deg);
   }
 }
+
+td {
+  padding: 15px;
+}
+
+.resetButton {
+  background: none;
+  appearance: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-family: inherit;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  padding: 5px 10px;
+  border-radius: 3px;
+  margin-top: 30px;
+}
