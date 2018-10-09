@@ -2,12 +2,10 @@ import React, { Component } from 'react';
 import Modal from 'react-modal';
 import './App.css';
 
+import { TREES, STEPS, ROCKS } from './constants';
 import Callout from './Callout';
 import SymbolGuide from './SymbolGuide';
-
-const TREES = 'trees';
-const STEPS = 'steps';
-const ROCKS = 'rocks';
+import PlateName from './PlateName';
 
 const PLATES = [TREES, STEPS, ROCKS];
 
@@ -65,7 +63,7 @@ class App extends Component {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <span>Riven gaze</span> <i class="far fa-external-link" />
+            <span>Riven gaze</span> <i className="far fa-external-link" />
           </a>
 
           <a
@@ -74,7 +72,7 @@ class App extends Component {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <i class="fab fa-twitter" /> <span>@joshhunt</span>
+            <i className="fab fa-twitter" /> <span>@joshhunt</span>
           </a>
         </div>
 
@@ -82,7 +80,9 @@ class App extends Component {
           <div className="plates">
             {PLATES.map(plate => (
               <div className="plate" key={plate}>
-                <div className="plate-title">{plate}</div>
+                <div className="plate-title">
+                  <PlateName className="plate-title-input" id={plate} />
+                </div>
 
                 <Callout
                   setCallout={callout => this.setCallout(plate, callout)}

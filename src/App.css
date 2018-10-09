@@ -1,12 +1,12 @@
 body {
   background-color: #282c34;
-  padding: 30px;
+  padding: 20px;
   font-family: 'Open Sans', sans-serif;
   height: calc(100% - 60px);
 }
 
 #root {
-  height: 100%;
+  min-height: 100%;
 }
 
 .App {
@@ -17,13 +17,19 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 100%;
+  min-height: 100%;
 }
 
 .header {
   align-self: flex-start;
   display: flex;
   line-height: 1;
+  margin-bottom: 30px;
+  white-space: nowrap;
+  max-width: calc(100% + 10px);
+  overflow: auto;
+  margin: 0 -20px 30px;
+  padding-left: 30px;
 }
 
 .navLink {
@@ -105,19 +111,30 @@ td {
 .plates {
   display: flex;
   align-items: center;
-  margin: 0 -15px;
   flex-wrap: wrap;
   justify-content: center;
+  margin: 0 -15px;
 }
 
 .plate {
-  margin: 0 15px;
-  margin-bottom: 30px;
+  margin: 0 15px 30px;
 }
 
 .plate-title {
   margin-bottom: 10px;
   text-transform: capitalize;
+}
+
+.plate-title-input {
+  font-family: inherit;
+  font-size: inherit;
+  border: none;
+  appearance: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  color: inherit;
+  text-align: inherit;
 }
 
 .Modal {

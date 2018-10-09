@@ -5,6 +5,7 @@ import './styles.css';
 import birdBranch from '../symbols/bird-branch.png';
 import birdDown from '../symbols/bird-down.png';
 import birdFly from '../symbols/bird-fly.png';
+import birdStand from '../symbols/bird-stand.png';
 import fireLeft from '../symbols/fire-left.png';
 import fireRight from '../symbols/fire-right.png';
 import fishCurl from '../symbols/fish-curl.png';
@@ -22,6 +23,7 @@ const SYMBOLS = [
   { icon: birdBranch, label: 'Bird branch' },
   { icon: birdDown, label: 'Bird down' },
   { icon: birdFly, label: 'Bird fly' },
+  { icon: birdStand, label: 'Bird stand' },
   { icon: fireLeft, label: 'Fire left' },
   { icon: fireRight, label: 'Fire right' },
   { icon: fishCurl, label: 'Fish curl' },
