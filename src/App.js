@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Modal from 'react-modal';
 import './App.css';
 
 import Callout from './Callout';
@@ -32,7 +33,8 @@ class App extends Component {
     });
   };
 
-  toggleSymbolGuide = () => {
+  toggleSymbolGuide = ev => {
+    ev.preventDefault();
     this.setState({ showSymbolGuide: !this.state.showSymbolGuide });
   };
 
@@ -50,6 +52,32 @@ class App extends Component {
 
     return (
       <div className="App" key={this.state.key}>
+        <div className="header">
+          <h1 className="siteName">The Vault</h1>
+
+          <a className="navLink" href="#" onClick={this.toggleSymbolGuide}>
+            <span>Symbol callouts</span>
+          </a>
+
+          <a
+            className="navLink"
+            href="https://rivengaze.firebaseapp.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>Riven gaze</span> <i class="far fa-external-link" />
+          </a>
+
+          <a
+            className="navLink"
+            href="https://www.twitter.com/joshhunt"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-twitter" /> <span>@joshhunt</span>
+          </a>
+        </div>
+
         <div className="main">
           <div className="plates">
             {PLATES.map(plate => (
@@ -69,11 +97,36 @@ class App extends Component {
           </button>
         </div>
 
-        {showSymbolGuide && <SymbolGuide />}
+        <Modal
+          isOpen={showSymbolGuide}
+          onRequestClose={this.toggleSymbolGuide}
+          contentLabel="Example Modal"
+          className="Modal"
+          overlayClassName="ModalOverlay"
+          closeTimeoutMS={300}
+        >
+          <SymbolGuide />
 
-        <button className="symbolButton" onClick={this.toggleSymbolGuide}>
-          {showSymbolGuide ? 'Hide' : 'Show'} symbol guide
-        </button>
+          <p>
+            <small>
+              Thanks to{' '}
+              <a
+                href="https://www.twitter.com/lowlines"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                @lowlines
+              </a>{' '}
+              for the symbol graphics
+            </small>
+          </p>
+
+          <p>
+            <button className="symbolButton" onClick={this.toggleSymbolGuide}>
+              Close symbol guide
+            </button>
+          </p>
+        </Modal>
       </div>
     );
   }
